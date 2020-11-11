@@ -12,6 +12,7 @@ handTrack.startVideo(video).then(
                 {video: {}}, 
                 stream => {
                     video.srcObject = stream; 
+                    runDetection()
                 }, 
                 err => console.log(err)
             );
@@ -19,6 +20,23 @@ handTrack.startVideo(video).then(
     }
 )
 
-handTrack.load().then(lmodel =>{
+
+function runDetection(){
+    model.detect(video).then(predictions => {
+        model.renderPredictions(predictions, canvas, context, video);
+
+        requestAnimationFrame(runDetection);
+    })
+}
+
+const modelParams = {
+    flipHorizontal: true,   // flip e.g for video 
+    imageScaleFactor: 0.7,  // reduce input image size for gains in speed.
+    maxNumBoxes: 2,        // maximum number of boxes to detect
+    iouThreshold: 0.5,      // ioU threshold for non-max suppression
+    scoreThreshold: 0.79,    // confidence threshold for predictions.
+  }
+
+handTrack.load(modelParams).then(lmodel =>{
     model = lmodel
 })
