@@ -3,34 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="serika_dark.css"/>
-    <title>Ciao Ale</title>
+    <link rel="stylesheet" href="src/css/main.css"/>
+    <link rel="stylesheet" href="src/css/global.css"/>
+    <link rel="stylesheet" href="src/css/serika_dark.css">
+    <title>The Dinger</title>
+
+    <script src="lib/jquery.min.js"></script>
+    <script src="src/js/article_list.js"></script>
+    <script src="src/js/site_navbar.js"></script>
 </head>
 <body>
-    <div class="nav">
-        <ul>
-            <li id="title">The Dinger</li>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="articles/articles.html">Articles</a></li>
-            <li><a href="news/news.html">News</a></li>
-            <li><a href="">About</a></li>
-        </ul>
+    <div id="site_navbar"></div>
+
+    <div class="page_content">
+        <div id="viewed_article"></div>
+        <div id="article_list_container"></div>    
     </div>
 
-    <div class="article">
-        <div class="main_article">
-            <h2>Article</h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea beatae nulla temporibus facilis natus vero vitae alias, dolorem ipsam, quae, assumenda dolores ratione. Odio voluptatibus qui officiis quo assumenda optio.</p>
-        </div>
-    
-        <div class="resources">
-            <ul>
-                <li><a href="">Article 1</a></li>
-                <li><a href="">Article 2</a></li>
-                <li><a href="">Article 2</a></li>
-                <li><a href="">Article 3</a></li>
-            </ul>
-        </div>
-    </div>
-</body>
 </html>

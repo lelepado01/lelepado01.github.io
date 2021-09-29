@@ -1,0 +1,8 @@
+
+:root {
+    --sidenav-color:#f1f1f1;
+    --borded-color: rgb(255, 255, 255);
+    --sidenav-text-color : rgb(141, 141, 141);
+    --sidenav-text-hover-color: "black";
+    --primary-color: dodgerblue; 
+}
