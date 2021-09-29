@@ -11,10 +11,10 @@ $(document).ready(function(){
             var reader = new FileReader();
             reader.readAsText(b);
     
-            reader.onload(function(evt){
-                var fileString = evt.target.result;
+            reader.onload = function(evt){
+                var fileString = reader.result;
                 $("#article_content").html(converter.makeHtml(fileString));
-            });
+            };
         })
     );
 
