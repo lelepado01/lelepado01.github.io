@@ -7,7 +7,7 @@ $(document).ready(function(){
 
     var converter = new showdown.Converter();
 
-    fetch(pageName).then((r) => r.blob.then((b)=>{
+    fetch(pageName).then((r) => r.blob().then((b)=>{
             var reader = new FileReader();
             reader.readAsText(b);
     
