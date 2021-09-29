@@ -74,8 +74,9 @@ text-decoration: none;
 }
 
 .box_list ul li a:hover {
-color: rgb(255, 255, 255);
-background-color: #661e25;
+  color: rgb(255, 255, 255);
+  background-color: #661e25;
+  cursor: pointer;
 }
 
 .page_content {
@@ -93,6 +94,12 @@ background-color: #661e25;
   background-color: #7e2a33;
   color: rgb(255, 255, 255);
   padding: 10px 20px;
+}
+
+.info_button:hover{
+  color: rgb(255, 255, 255);
+  background-color: #661e25;
+  cursor: pointer;
 }
 
 #article_sidebar {

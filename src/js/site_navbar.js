@@ -18,7 +18,7 @@ var pageLinks = [
 function getRelativePathToPage(pageLink, currentPage){
     var home = "index.html";
     if (currentPage == home && pageLink != home){
-        return "html/" + pageLink; 
+        return "src/html/" + pageLink; 
     } else if (currentPage != home && pageLink == home) {
         return "../../" + pageLink
     }
