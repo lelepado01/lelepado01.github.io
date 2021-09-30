@@ -19,7 +19,7 @@ function createArticleContent(callback){
 }
 
 $(document).ready(function(){
-    createArticleContent(
-        createArticleSidebar() 
-    ); 
+    createArticleContent(function(){
+        createArticleSidebar(); 
+    }); 
 });
