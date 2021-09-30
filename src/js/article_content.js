@@ -19,5 +19,7 @@ function createArticleContent(callback){
 }
 
 $(document).ready(function(){
-    createArticleContent(); 
+    createArticleContent(
+        createArticleSidebar() 
+    ); 
 });
