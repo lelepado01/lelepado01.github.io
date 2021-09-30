@@ -1,5 +1,7 @@
 
-var pageName = "../../pages/" + document.URL.split("=")[1] + ".txt";
+var page = document.URL.split("=")[1]; 
+if (page.includes("#")) page = page.split("#")[0]; 
+var pageName = "../../pages/" + page + ".txt";
 
 function createArticleContent(callback){
     var converter = new showdown.Converter();
