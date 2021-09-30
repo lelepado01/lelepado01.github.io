@@ -113,7 +113,13 @@ text-decoration: none;
   text-decoration: none;
 }
 
+#article_sidebar ul {
+  list-style-type: none;
+  line-height: 50px;
+}
+
 #article_sidebar a {
+  margin: 5px;
   color: rgb(255, 255, 255);
   text-decoration: none;
 }
