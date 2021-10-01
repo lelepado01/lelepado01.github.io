@@ -1,17 +1,9 @@
 
-var articles = [
-    "Quadtree",
-    "Isometric Renderer",
-    "Bla bla",
-    "Particles"
-];
+const DESCRIPTION_SECTION_TAG = "###### descriptionsection"; 
 
-var shortDescriptions = [
-    "Ciao",
-    "Ciaon w s",
-    "Cia wwo",
-    "Ciao ,aa," 
-];
+var articles = [];
+
+var shortDescriptions = [];
 
 var currentArticle = 0; 
 
@@ -35,15 +27,56 @@ function createViewedArticleDescription(index){
     $("#viewed_article").append(btn); 
 }
 
-$(document).ready(function(){
-    var ls = $("<ul>"); 
+
+async function createArticleList(){
+    await fetch("../../pages").then((data)=> data.text().then((ls) => {
+        
+        var fileLines = ls.split("\n"); 
+        for (let i = 0; i < fileLines.length; i++) {
+            if (fileLines[i].includes("<li><a")){
+
+                var currentLine = fileLines[i].replace("</a></li>", "").replace("<li>","");
+                currentLine = currentLine.substr(currentLine.indexOf(">")+1); 
+                currentLine = currentLine.replace(".txt", ""); 
+
+                articles.push(currentLine); 
+            }
+        }
+    }));
+}
+
+async function createArticleDescriptionList(){
     
     for (let i = 0; i < articles.length; i++) {
-        ls.append(createArticleBox(i)); 
-    }
-    
-    var container = $("<div>", {class:"box_list"}).append(ls); 
-    $("#article_list_container").append(container); 
+        var descriptionFound = false; 
+        await fetch("../../pages/" + articles[i] + ".txt").then((data) => data.text().then((fileContent) => {
+            var fileLines = fileContent.split("\n"); 
+            for (let line = 0; line < fileLines.length; line++) {
+                if (fileLines[line].includes(DESCRIPTION_SECTION_TAG)){
+                    shortDescriptions[i] = fileLines[line].replace(DESCRIPTION_SECTION_TAG, ""); 
+                    descriptionFound = true; 
+                    break; 
+                }
+            }
+        }));
 
-    createViewedArticleDescription(0); 
+        if (!descriptionFound) shortDescriptions[i] = "No description found"; 
+    }
+
+}
+
+$(document).ready(function(){
+
+    createArticleList().then(() => createArticleDescriptionList().then(() => {
+        var ls = $("<ul>"); 
+    
+        for (let i = 0; i < articles.length; i++) {
+            ls.append(createArticleBox(i)); 
+        }
+        
+        var container = $("<div>", {class:"box_list"}).append(ls); 
+        $("#article_list_container").append(container); 
+    
+        createViewedArticleDescription(0); 
+    }));  
 });
