@@ -9,7 +9,7 @@ var pages = [
 
 function getRelativePathToPage(pageLink, currentPage){
     var home = "index.html";
-    if (currentPage.includes(home) && pageLink != home){
+    if ((currentPage.includes(home) || !currentPage.includes("src")) && pageLink != home){
         return "src/html/" + pageLink; 
     } else if (!currentPage.includes(home) && pageLink == home) {
         return "../../" + pageLink;
