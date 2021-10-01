@@ -1,6 +1,7 @@
 
-$(document).ready(function(){
+var Converter = new showdown.Converter();
 
+$(document).ready(function(){
     var page = document.URL.split("=")[1]; 
     if (page.includes("#")) page = page.split("#")[0]; 
     var pageName = "../../pages/" + page + ".txt";
@@ -29,8 +30,6 @@ function createArticleContent(pagePath, callback){
 }
 
 function convertArticleFromTextToHtml(textData){
-    var converter = new showdown.Converter();
-
     var textDataLines = textData.split("\n"); 
 
     var currentTextToParse = ""; 
@@ -45,7 +44,7 @@ function convertArticleFromTextToHtml(textData){
             
         } else {
 
-            completeHtml += converter.makeHtml(currentTextToParse); 
+            completeHtml += Converter.makeHtml(currentTextToParse); 
             currentTextToParse = ""; 
 
             var filepath = textDataLines[i].split(" ")[2]; 
@@ -54,7 +53,7 @@ function convertArticleFromTextToHtml(textData){
         }
     }
     
-    if (currentTextToParse != "") completeHtml += converter.makeHtml(currentTextToParse); 
+    if (currentTextToParse != "") completeHtml += Converter.makeHtml(currentTextToParse); 
     $(ARTICLE_BODY).html(completeHtml);
 
 }
@@ -75,7 +74,16 @@ function createArticleSidebar(relatedArticlesMarkdown){
     $(ARTICLE_SIDEBAR).append($("<hr>")); 
     $(ARTICLE_SIDEBAR).append($("<h4>").text("Related Articles")); 
     
-    var converter = new showdown.Converter();
-    $(ARTICLE_SIDEBAR).append(converter.makeHtml(relatedArticlesMarkdown)); 
+    var related = Converter.makeHtml(relatedArticlesMarkdown).replace("<ul>", "").replace("</ul>", "").split("<li>"); 
+    
+    var related_list = $("<ul>"); 
+    for (let i = 0; i < related.length; i++) {
+        let articleName = related[i].replace("</li>", ""); 
+        related_list.append(
+            '<li><a href="article.html?page=' + articleName + '">' + articleName + "</a></li>"
+            ); 
+    }
+
+    $(ARTICLE_SIDEBAR).append(related_list); 
 }
 
