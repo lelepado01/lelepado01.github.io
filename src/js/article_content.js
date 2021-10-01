@@ -1,14 +1,11 @@
 
-const RELATED_TAG = "###### relatedsection";
-const CODE_SECTION_TAG = "###### codesection" 
-
 $(document).ready(function(){
 
     var page = document.URL.split("=")[1]; 
     if (page.includes("#")) page = page.split("#")[0]; 
     var pageName = "../../pages/" + page + ".txt";
 
-    createArticleContent(pageName, function(data){
+    createArticleContent(pageName, (data) => {
         createArticleSidebar(data); 
     }); 
 });
@@ -40,6 +37,8 @@ function convertArticleFromTextToHtml(textData){
     var completeHtml = "";
 
     for (let i = 0; i < textDataLines.length; i++) {
+        if (textDataLines[i].includes(DESCRIPTION_SECTION_TAG)) continue; 
+
         if (!textDataLines[i].includes(CODE_SECTION_TAG)) {
 
             currentTextToParse += textDataLines[i] + "\n"; 
@@ -50,33 +49,33 @@ function convertArticleFromTextToHtml(textData){
             currentTextToParse = ""; 
 
             var filepath = textDataLines[i].split(" ")[2]; 
-            completeHtml += '<div id="' + filepath + '"></div>'
+            completeHtml += '<div id="' + filepath + '"></div>';
 
         }
     }
     
     if (currentTextToParse != "") completeHtml += converter.makeHtml(currentTextToParse); 
-    $("#article_content").html(completeHtml);
+    $(ARTICLE_BODY).html(completeHtml);
 
 }
 
 function createArticleSidebar(relatedArticlesMarkdown){
     var header_list = document.getElementsByTagName("h2"); 
 
-    var chapter_list = $("<ul>")
+    var chapter_list = $("<ul>");
     for (let i = 0; i < header_list.length; i++) {
         chapter_list.append(
             $("<li>").append($("<a>", {href:"#" + header_list[i].innerText.toLowerCase().replaceAll(" ", "")}).text(header_list[i].innerText))
         )
     }
 
-    $("#article_sidebar").append($("<h4>").text("Chapters"))
-    $("#article_sidebar").append(chapter_list);
+    $(ARTICLE_SIDEBAR).append($("<h4>").text("Chapters"))
+    $(ARTICLE_SIDEBAR).append(chapter_list);
 
-    $("#article_sidebar").append($("<hr>")); 
-    $("#article_sidebar").append($("<h4>").text("Related Articles")); 
+    $(ARTICLE_SIDEBAR).append($("<hr>")); 
+    $(ARTICLE_SIDEBAR).append($("<h4>").text("Related Articles")); 
     
     var converter = new showdown.Converter();
-    $("#article_sidebar").append(converter.makeHtml(relatedArticlesMarkdown)); 
+    $(ARTICLE_SIDEBAR).append(converter.makeHtml(relatedArticlesMarkdown)); 
 }
 

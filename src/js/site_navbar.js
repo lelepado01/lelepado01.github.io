@@ -1,26 +1,18 @@
 
 var pages = [
-    "The Dinger",
-    "Home",
-    "Articles",
-    "Updates"
-];
-
-var pageLinks = [
-    "",
-    "index.html",
-    "articles.html",
-    "updates.html",
-    ""
+    {name:"The Dinger",link: ""},
+    {name:"Home",link: "index.html"},
+    {name:"Articles",link: "articles.html"},
+    {name:"Updates",link: "updates.html"}
 ];
 
 
 function getRelativePathToPage(pageLink, currentPage){
     var home = "index.html";
-    if (currentPage == home && pageLink != home){
+    if (currentPage.includes(home) && pageLink != home){
         return "src/html/" + pageLink; 
-    } else if (currentPage != home && pageLink == home) {
-        return "../../" + pageLink
+    } else if (!currentPage.includes(home) && pageLink == home) {
+        return "../../" + pageLink;
     }
 
     return pageLink; 
@@ -28,16 +20,20 @@ function getRelativePathToPage(pageLink, currentPage){
 
 function createNavbarItem(index) {
     var item;
-    var linkToPage = getRelativePathToPage(pageLinks[index], document.URL.split("/").pop());
-    if (index == 0) item = $("<li>", {id:"title"}).text(pages[index]);
-    else item = $("<li>").append($("<a>", {href:linkToPage}).text(pages[index]));; 
+    var linkToPage = getRelativePathToPage(pages[index].link, document.URL.split("/").pop());
+
+    if (index == 0) {
+        item = $("<li>", {id:"title"}).text(pages[index].name);
+    } else {
+        item = $("<li>").append($("<a>", {href:linkToPage}).text(pages[index].name));
+    }
+
     return item; 
 }
 
 $(document).ready(function(){
 
     var ls = $("<ul>"); 
-
     for (let i = 0; i < pages.length; i++) {
         ls.append(createNavbarItem(i));
     }
