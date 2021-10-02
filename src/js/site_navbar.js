@@ -8,7 +8,7 @@ var pages = [
 
 function createNavbarItem(index) {
     var item;
-    var linkToPage = getRelativePathToPage(pages[index].link, document.URL.split("/").pop());
+    var linkToPage = getRelativePathToPage(pages[index].link);
 
     if (index == 0) {
         item = $("<li>", {id:"title"}).text(pages[index].name);

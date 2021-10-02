@@ -50,7 +50,7 @@ $(document).ready(function(){
             ls.append(createArticleBox(i)); 
         }
         
-        var container = $("<div>", {class:"box_list"}).append(ls); 
+        var container = $("<div>", {class:"article_list"}).append(ls); 
         $(ARTICLE_LIST).append(container); 
     
         createViewedArticleDescription(0); 

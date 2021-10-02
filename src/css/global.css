@@ -1,8 +1,75 @@
 
 :root {
-    --sidenav-color:#f1f1f1;
-    --borded-color: rgb(255, 255, 255);
-    --sidenav-text-color : rgb(141, 141, 141);
-    --sidenav-text-hover-color: "black";
-    --primary-color: dodgerblue; 
-}
+    --bg-color: #323437;
+    --main-color: #e2b714;
+    --caret-color: #e2b714;
+    --sub-color: #646669;
+    --text-color: #d1d0c5;
+    --error-color: #ca4754;
+    --error-extra-color: #7e2a33;
+    --colorful-error-color: #ca4754;
+    --colorful-error-extra-color: #7e2a33;
+  }
+  
+  .page_content {
+    margin: 20px;
+    margin-left: 50px;
+  }
+
+  body {
+  background-color: #323437;
+  font-family: monospace;
+  color: aliceblue;
+  }
+  
+  #title {
+  color: rgb(255, 255, 255);
+  background-color: #7e2a33;
+  font-size: 25px;
+  padding: 10px 20px;
+  text-align: left;
+  }
+  
+  
+  .nav {
+  width: 100%;
+  text-align: left;
+  }
+  
+  .nav ul {
+  list-style-type: none;
+  line-height: 50px;
+  }
+  
+  .nav li {
+  display: inline;
+  margin: 5px;
+  }
+  
+  .nav ul li a {
+  color: rgb(255, 255, 255);
+  background-color: #7e2a33;
+  padding: 10px 20px;
+  font-size: 25px;
+  text-decoration: none;
+  }
+  
+  .nav ul li a:hover {
+  color: rgb(255, 255, 255);
+  background-color: #661e25;
+  }
+  
+
+  .info_button{
+    float: left;
+    background-color: #7e2a33;
+    color: rgb(255, 255, 255);
+    padding: 10px 20px;
+  }
+
+  .info_button:hover{
+    color: rgb(255, 255, 255);
+    background-color: #661e25;
+    cursor: pointer;
+  }
+  

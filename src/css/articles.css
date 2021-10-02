@@ -1,0 +1,27 @@
+
+
+.article_list {
+    float: left;
+    width: 50%;
+    background-color: #646464;
+    text-align: left;
+}
+  
+.article_list ul {
+    list-style-type: none;
+    line-height: 50px;
+}
+
+.article_list ul li a {
+    color: rgb(255, 255, 255);
+    background-color: #7e2a33;
+    font-size: 20px;
+    padding: 10px 20px;
+    text-decoration: none;
+}
+
+.article_list ul li a:hover {
+    color: rgb(255, 255, 255);
+    background-color: #661e25;
+    cursor: pointer;
+}
