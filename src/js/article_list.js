@@ -25,7 +25,7 @@ function createViewedArticleDescription(index){
 
 async function createArticleList(){
 
-    var path = document.URL.includes("src") ? "../../pages/" : "pages/"; 
+    var path = document.URL.includes("src") ? "../../pages/Quadtree.txt" : "./pages/Quadtree.txt"; 
 
     await fetch(path).then((data)=> data.text().then((ls) => {
         
