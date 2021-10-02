@@ -11,3 +11,8 @@ const ARTICLE_VIEWED = "#viewed_article";
 /* Components in article.html */
 const ARTICLE_SIDEBAR = "#article_sidebar"; 
 const ARTICLE_BODY = "#article_content"; 
+
+const Articles = [
+    "Particles", 
+    "Quadtree"
+];

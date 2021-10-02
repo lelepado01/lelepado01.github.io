@@ -1,5 +1,4 @@
 
-var Articles = [];
 var ShortDescriptions = [];
 
 function createArticleBox(index){
@@ -20,27 +19,6 @@ function createViewedArticleDescription(index){
         document.location.replace("src/html/article.html?page=" + Articles[index]);
     });
     $(ARTICLE_VIEWED).append(btn); 
-}
-
-
-async function createArticleList(){
-
-    var path = document.URL.includes("src") ? "../../pages/Quadtree.txt" : "./pages/Quadtree.txt"; 
-
-    await fetch(path).then((data)=> data.text().then((ls) => {
-        
-        var fileLines = ls.split("\n"); 
-        for (let i = 0; i < fileLines.length; i++) {
-            if (fileLines[i].includes("<li><a")){
-
-                var currentLine = fileLines[i].replace("</a></li>", "").replace("<li>","");
-                currentLine = currentLine.substr(currentLine.indexOf(">")+1); 
-                currentLine = currentLine.replace(".txt", ""); 
-
-                Articles.push(currentLine); 
-            }
-        }
-    }));
 }
 
 async function createArticleDescriptionList(){
@@ -65,7 +43,7 @@ async function createArticleDescriptionList(){
 
 $(document).ready(function(){
 
-    createArticleList().then(() => createArticleDescriptionList().then(() => {
+    createArticleDescriptionList().then(() => {
         var ls = $("<ul>"); 
     
         for (let i = 0; i < Articles.length; i++) {
@@ -76,5 +54,5 @@ $(document).ready(function(){
         $(ARTICLE_LIST).append(container); 
     
         createViewedArticleDescription(0); 
-    }));  
+    });  
 });
