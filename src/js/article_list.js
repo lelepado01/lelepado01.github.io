@@ -24,7 +24,10 @@ function createViewedArticleDescription(index){
 
 
 async function createArticleList(){
-    await fetch("../../pages/").then((data)=> data.text().then((ls) => {
+
+    var path = document.URL.includes("src") ? "../../pages/" : "pages/"; 
+
+    await fetch(path).then((data)=> data.text().then((ls) => {
         
         var fileLines = ls.split("\n"); 
         for (let i = 0; i < fileLines.length; i++) {

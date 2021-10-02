@@ -79,6 +79,7 @@ function createArticleSidebar(relatedArticlesMarkdown){
     var related_list = $("<ul>"); 
     for (let i = 0; i < related.length; i++) {
         let articleName = related[i].replace("</li>", ""); 
+        if (articleName == "\n")continue; 
         related_list.append(
             '<li><a href="article.html?page=' + articleName + '">' + articleName + "</a></li>"
             ); 

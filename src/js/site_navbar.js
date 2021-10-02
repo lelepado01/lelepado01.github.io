@@ -6,18 +6,6 @@ var pages = [
     {name:"Updates",link: "updates.html"}
 ];
 
-
-function getRelativePathToPage(pageLink, currentPage){
-    var home = "index.html";
-    if ((currentPage.includes(home) || !currentPage.includes("src")) && pageLink != home){
-        return "src/html/" + pageLink; 
-    } else if (!currentPage.includes(home) && pageLink == home) {
-        return "../../" + pageLink;
-    }
-
-    return pageLink; 
-}
-
 function createNavbarItem(index) {
     var item;
     var linkToPage = getRelativePathToPage(pages[index].link, document.URL.split("/").pop());
