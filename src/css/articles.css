@@ -1,23 +1,27 @@
 
 
 .article_list {
-    float: left;
-    width: 50%;
     background-color: #646464;
-    text-align: left;
+    width: 80%;
+    padding: 5px 10px;
 }
   
 .article_list ul {
     list-style-type: none;
     line-height: 50px;
+    display: inline;
+    padding: 10px 0px;
+}
+
+.article_list ul li {
+    display: inline;
+    margin: 5px;
 }
 
 .article_list ul li a {
-    color: rgb(255, 255, 255);
     background-color: #7e2a33;
     font-size: 20px;
     padding: 10px 20px;
-    text-decoration: none;
 }
 
 .article_list ul li a:hover {
