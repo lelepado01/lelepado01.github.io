@@ -12,7 +12,19 @@ const ARTICLE_VIEWED = "#viewed_article";
 const ARTICLE_SIDEBAR = "#article_sidebar"; 
 const ARTICLE_BODY = "#article_content"; 
 
+/* Components in update.html */
+const UPDATE_BODY= "#update_content";
+
+/* Components in updates.html */
+const UPDATE_LIST = "#update_list_container";
+
+const PAGE_CONTAINER = "#page_content";
+
 const Articles = [
     "Particles", 
     "Quadtree"
+];
+
+const Updates = [
+    "TestUpdate1"
 ];
