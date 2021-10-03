@@ -4,7 +4,7 @@ var Converter = new showdown.Converter();
 $(document).ready(function(){
     var page = document.URL.split("=")[1]; 
     if (page.includes("#")) page = page.split("#")[0]; 
-    var pageName = "../../pages/" + page + ".txt";
+    var pageName = PAGES_FOLDER + page + ".txt";
 
     createArticleContent(pageName, (data) => {
         createArticleSidebar(data); 
@@ -74,15 +74,22 @@ function createArticleSidebar(relatedArticlesMarkdown){
     $(ARTICLE_SIDEBAR).append($("<hr>")); 
     $(ARTICLE_SIDEBAR).append($("<h4>").text("Related Articles")); 
     
-    var related = Converter.makeHtml(relatedArticlesMarkdown).replace("<ul>", "").replace("</ul>", "").split("<li>"); 
+    var related = Converter.makeHtml(relatedArticlesMarkdown)
+    related = related.replace("<ul>", "");
+    related = related.replace("</ul>", "");
+    related = related.split("<li>");
     
     var related_list = $("<ul>"); 
     for (let i = 0; i < related.length; i++) {
         let articleName = related[i].replace("</li>", ""); 
+        
         if (articleName == "\n")continue; 
+
         related_list.append(
-            '<li><a href="article.html?page=' + articleName + '">' + articleName + "</a></li>"
-            ); 
+            $("<li>").append(
+                $("<a>", {href: "article.html?page=" + articleName}).text(articleName)
+            )
+        ); 
     }
 
     $(ARTICLE_SIDEBAR).append(related_list); 

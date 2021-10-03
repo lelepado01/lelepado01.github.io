@@ -4,7 +4,7 @@ var Converter = new showdown.Converter();
 $(document).ready(function(){
     var page = document.URL.split("=")[1]; 
     if (page.includes("#")) page = page.split("#")[0]; 
-    var pageName = "../../updates/" + page + ".txt";
+    var pageName = "../../" + UPDATES_FOLDER + page + ".txt";
 
     $(PAGE_CONTAINER).prepend($("<h2>").text(page));
     createUpdateContent(pageName); 

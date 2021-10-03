@@ -4,7 +4,11 @@ var ShortDescriptions = [];
 function createArticleBox(index){
     var articleElement = $("<li>").append($("<a>").text(Articles[index])); 
     articleElement.click(function(){
-        createViewedArticleDescription(index);
+        if (IsHomepage()){
+            createViewedArticleDescription(index);
+        } else {
+            GoToPage("article.html?page=" + Articles[index]);
+        }
     }); 
     return articleElement; 
 }
@@ -16,7 +20,7 @@ function createViewedArticleDescription(index){
 
     var btn = $("<div>", {class:"info_button"}).text("View Article"); 
     btn.click(function(){
-        document.location.replace("src/html/article.html?page=" + Articles[index]);
+        GoToPage(HTML_FOLDER + "article.html?page=" + Articles[index]);
     });
     $(ARTICLE_VIEWED).append(btn); 
 }
@@ -25,7 +29,7 @@ async function createArticleDescriptionList(){
     
     for (let i = 0; i < Articles.length; i++) {
         var descriptionFound = false; 
-        await fetch("../../pages/" + Articles[i] + ".txt").then((data) => data.text().then((fileContent) => {
+        await fetch(PAGES_FOLDER + Articles[i] + ".txt").then((data) => data.text().then((fileContent) => {
             var fileLines = fileContent.split("\n"); 
             for (let line = 0; line < fileLines.length; line++) {
                 if (fileLines[line].includes(DESCRIPTION_SECTION_TAG)){

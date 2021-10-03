@@ -1,13 +1,21 @@
 
-function getRelativePathToPage(pageLink){
+function GetRelativePathToPage(pageLink){
 
     var currentPage = document.URL; 
 
-    if (!currentPage.includes("src/html") && pageLink != "index.html"){
-        return "src/html/" + pageLink; 
-    } else if (currentPage.includes("src/html") && pageLink == "index.html") {
+    if (!currentPage.includes(HTML_FOLDER) && pageLink != "index.html"){
+        return HTML_FOLDER + pageLink; 
+    } else if (currentPage.includes(HTML_FOLDER) && pageLink == "index.html") {
         return "../../" + pageLink;
     }
 
     return pageLink; 
+}
+
+function IsHomepage(){
+    return !document.URL.includes("src");
+}
+
+function GoToPage(page){
+    document.location.replace(page); 
 }

@@ -1,4 +1,10 @@
 
+/* Folder Paths */
+const UPDATES_FOLDER = "updates/"; 
+const ARTICLES_FOLDER = "articles/"
+const HTML_FOLDER = "src/html/";
+const PAGES_FOLDER = "../../pages/"
+
 /* Custom Markdown Tags */
 const DESCRIPTION_SECTION_TAG = "###### descriptionsection"; 
 const RELATED_TAG = "###### relatedsection";
@@ -19,6 +25,7 @@ const UPDATE_BODY= "#update_content";
 const UPDATE_LIST = "#update_list_container";
 
 const PAGE_CONTAINER = "#page_content";
+const NAVBAR_CONTAINER = "#site_navbar"
 
 const Articles = [
     "Particles", 
@@ -27,4 +34,11 @@ const Articles = [
 
 const Updates = [
     "TestUpdate1"
+];
+
+const SiteNavbarItems = [
+    {name:"The Dinger",link: ""},
+    {name:"Home",link: "index.html"},
+    {name:"Articles",link: "articles.html"},
+    {name:"Updates",link: "updates.html"}
 ];
