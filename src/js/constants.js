@@ -28,8 +28,14 @@ const PAGE_CONTAINER = "#page_content";
 const NAVBAR_CONTAINER = "#site_navbar"
 
 const Articles = [
-    "Particles", 
-    "Quadtree"
+    "Quadtree",
+    "2D Engine 0",
+    "2D Engine 1: Window management",
+    "2D Engine 2: Event handling",
+    "2D Engine 3: Drawing textures",
+    "2D Engine 4: Drawing primitives",
+    "2D Engine 5: Handling Time",
+    "2D Engine 6: Simple vectors",
 ];
 
 const Updates = [
