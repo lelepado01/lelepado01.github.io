@@ -13,7 +13,7 @@
 }
 
 #update_list_container ul li {
-    display: inline;
+    display: inline-block;
     margin: 5px;
 }
 
