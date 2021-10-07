@@ -59,7 +59,7 @@ void Engine::DeleteTexture(SDL_Texture *tex){
 
 ## References
 
- - [TheCherno OpenGL tutorial]()
+ - [TheCherno OpenGL playlist](https://www.youtube.com/playlist?list=PLlrATfBNZ98foTJPJ_Ev03o2oq3-GGOS2)
  - [Lazy Foo's SDL tutorials](https://lazyfoo.net/tutorials/OpenGL/index.php)
 
 

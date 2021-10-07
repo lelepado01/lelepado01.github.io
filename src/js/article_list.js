@@ -29,7 +29,7 @@ async function createArticleDescriptionList(){
     
     for (let i = 0; i < Articles.length; i++) {
         var descriptionFound = false; 
-        await fetch(PAGES_FOLDER + Articles[i] + ".txt").then((data) => data.text().then((fileContent) => {
+        await fetch(PAGES_FOLDER + Articles[i] + ".md").then((data) => data.text().then((fileContent) => {
             var fileLines = fileContent.split("\n"); 
             for (let line = 0; line < fileLines.length; line++) {
                 if (fileLines[line].includes(DESCRIPTION_SECTION_TAG)){

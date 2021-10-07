@@ -33,6 +33,11 @@
     margin: 0 20px;
 }
 
+#article_content a {
+    text-decoration:none;
+    color: rgb(214, 216, 182);
+}
+
 code {
     color: #d1d0c5;
 }

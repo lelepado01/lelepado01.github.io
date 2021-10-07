@@ -14,7 +14,7 @@
 }
 
 .article_list ul li {
-    display: inline;
+    display: inline-block;
     margin: 5px;
 }
 
