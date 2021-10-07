@@ -3,12 +3,11 @@
 
 # 2D Engine: Drawing primitives
 
-5/10/21
+*5/10/21*
 
 ## Drawing primitives
 
-This section is not strictly necessary, however, drawing primitives is often useful for debugging purposes.
-To keep things simple, we are going to implement only a few, such as line and rectangle.
+This section is not strictly necessary, however, drawing primitives is often useful for debugging purposes To keep things simple, we are going to implement only a few, such as line and rectangle.
 
 ```
 void Engine::DrawLine(int x1, int y1, int x2, int y2){

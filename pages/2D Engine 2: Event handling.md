@@ -3,11 +3,11 @@
 
 # 2D Engine: Event Handling
 
-5/10/21
+*5/10/21*
 
 ## Handling keypresses
 
-We'd like to be able to have a function for testing a key's state, similar to this: 
+We'd like to have a function for testing a key's state, something similar to this: 
 
 ```
 // returns true if key is pressed
@@ -15,20 +15,21 @@ bool Engine::KeyIsPressed(SDL_Keycode key);
 ```
 
 To have a simple way to check this condition, first we need to register each keypress. 
-First of all, let's add a static array of SDL_Keycodes, ideally we'd use a map to improve the performance 
+Let's add a static array of *SDL_Keycodes*, ideally we'd use a map to improve the performance 
 however, most of the time this array will contain four or five items, making this optimization not necessary.
 
-````
+```
 // maxKeys is a static int variable, to be safe, I set it at 100
 static SDL_Keycode KEYS[maxKeys];
 ``` 
 
-In the HandleEvents() function, add: 
+In the *HandleEvents()* function, add: 
 
-````
+```
 if (event.type == SDL_KEYDOWN){
     // iterate over the array and set the key state, avoiding duplicates
     for (int i = 0; i < maxKeys; i++) { 
+        // the state 0 means no key (the spot is empty)
         if (KEYS[i] == 0 || KEYS[i] == event.key.keysym.sym){
             KEYS[i] = event.key.keysym.sym;
             break;
@@ -65,16 +66,16 @@ bool Engine::KeyIsPressed(SDL_Keycode key){
 
 ## Handling mouse position
 
-Registering the position of the mouse is very simple, we'll just use an SDL_Point to save the data: 
+Registering the position of the mouse is very simple, we'll just use an *SDL_Point* to save the data: 
 
 ```
 static SDL_Point mousePosition;
 ```
 
-SDL_Point is basically a vector of two integers, and it's important to keep in mind that SDL_GetMouseState() 
+SDL_Point is basically a vector of two integers, and it's important to keep in mind that *SDL_GetMouseState()* 
 returns only integer values.
 
-The following line have to be added inside the HandleEvents() function, in order to register the mouse position. 
+The following line have to be added inside the *HandleEvents()* function, in order to register the mouse position. 
 
 ```
 SDL_GetMouseState( &mousePosition.x, &mousePosition.y );

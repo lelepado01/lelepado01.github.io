@@ -3,7 +3,7 @@
 
 # 2D Engine: Handling Time
 
-5/10/21
+*5/10/21*
 
 ## Counting Time
 
@@ -50,8 +50,8 @@ float Time::FPS(){
 }
 ```
 
-Note: if you end up printing the FPS at each iteration of the game loop, this measurement will be terrible, 
-any print() statement to console is a very expensive operation, and will bring your performance down.
+###### notesection Note: if you end up printing the FPS at each iteration of the game loop, this measurement will be terrible, 
+any *print()* statement to console is a very expensive operation, and will bring your performance down.
 
 ## References
 
@@ -66,4 +66,3 @@ any print() statement to console is a very expensive operation, and will bring y
  - 2D Engine 2: Event handling
  - 2D Engine 3: Drawing textures
  - 2D Engine 4: Drawing primitives
- - 2D Engine 6: Simple vectors

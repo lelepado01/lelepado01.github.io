@@ -3,7 +3,7 @@
 
 # 2D Engine: Window Management
 
-4/10/21
+*4/10/21*
 
 ## Engine Class
 
@@ -36,8 +36,7 @@ void Engine::InitSDL(){
 }
 ```
 
-It could be usesful to have a function to log any error happening in our code, the one shown below is very simple, 
-but can be used to also print, for example, the file and the line where the error is happening, or it's type.
+It could be usesful to have a function to log any error happening in our code, the one shown below is very simple, but can be used to also print, for example, the file and the line where the error is happening, or it's type.
 
 ```
 void Engine::LogSDLError(std::ostream &os, const std::string &msg){
@@ -49,7 +48,8 @@ void Engine::LogSDLError(std::ostream &os, const std::string &msg){
 ## Renderer init
 
 The Renderer is the object responsable for receiving the draw requests, and print them to the screen. 
-In the InitSDL() function, after the window creation, add:
+In the *InitSDL()* function, after the window creation, add:
+
 ```
 // Again, Renderer is a static variable of type SDL_Renderer
 Renderer = SDL_CreateRenderer(Window, -1, SDL_RENDERER_ACCELERATED);

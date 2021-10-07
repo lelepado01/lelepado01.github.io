@@ -9,6 +9,7 @@ const PAGES_FOLDER = "../../pages/"
 const DESCRIPTION_SECTION_TAG = "###### descriptionsection"; 
 const RELATED_TAG = "###### relatedsection";
 const CODE_SECTION_TAG = "###### codesection"; 
+const NOTE_SECTION_TAG = '###### notesection';
 
 /* Components in index.html */
 const ARTICLE_LIST = "#article_list_container"; 
