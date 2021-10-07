@@ -1,6 +1,9 @@
 
 var Converter = new showdown.Converter();
 
+var completeHtml = '';
+var cachedText = ''; 
+
 $(document).ready(function(){
     var page = document.URL.split("=")[1]; 
     if (page.includes("#")) page = page.split("#")[0]; 
@@ -34,39 +37,33 @@ function createNote(text){
     return '<div class="note">' + "<b>Note:</b> " + text + '</div>'; 
 }
 
+function parseArticleLine(line){
+    if (line.includes(DESCRIPTION_SECTION_TAG)) {
+        return; 
+    } else if (line.includes(CODE_SECTION_TAG)) {
+        completeHtml += Converter.makeHtml(cachedText); 
+        cachedText = ''; 
+
+        var filepath = line.split(" ")[2]; 
+        cachedText += '<div id="' + filepath + '"></div>';  
+    } else if (line.includes(NOTE_SECTION_TAG)) {
+        line = line.replace(NOTE_SECTION_TAG, ""); 
+        cachedText += createNote(line);
+    } else {
+        cachedText += line + "\n";
+    }
+}
+
+
 function convertArticleFromTextToHtml(textData){
     var textDataLines = textData.split("\n"); 
 
-    var currentTextToParse = ""; 
-    var completeHtml = "";
-
     for (let i = 0; i < textDataLines.length; i++) {
-        if (textDataLines[i].includes(DESCRIPTION_SECTION_TAG)) continue; 
-
-        if (textDataLines[i].includes(CODE_SECTION_TAG)) {
-
-            completeHtml += Converter.makeHtml(currentTextToParse); 
-            currentTextToParse = ""; 
-
-            var filepath = textDataLines[i].split(" ")[2]; 
-            completeHtml += '<div id="' + filepath + '"></div>';
-        
-        } else if (textDataLines[i].includes(NOTE_SECTION_TAG)) {
-        
-            completeHtml += Converter.makeHtml(currentTextToParse); 
-            currentTextToParse = ""; 
-            completeHtml += createNote(textDataLines[i]);
-
-        } else {
-
-            currentTextToParse += textDataLines[i] + "\n"; 
-
-        }
+        parseArticleLine(textDataLines[i]); 
     }
-    
-    if (currentTextToParse != "") completeHtml += Converter.makeHtml(currentTextToParse); 
-    $(ARTICLE_BODY).html(completeHtml);
 
+    if (cachedText != "") completeHtml += Converter.makeHtml(cachedText); 
+    $(ARTICLE_BODY).html(completeHtml);
 }
 
 function createArticleSidebar(relatedArticlesMarkdown){
