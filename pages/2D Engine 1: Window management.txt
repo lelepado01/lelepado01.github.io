@@ -1,7 +1,7 @@
 
-###### descriptionsection In this part we'll be creating a window and handling most of SDL "boring stuff" 
+###### descriptionsection In this part we'll be creating a window and handling most of SDL "boring stuff".
 
-# Quest For A 2D Engine
+# 2D Engine: Window Management
 
 4/10/21
 
@@ -48,6 +48,7 @@ void Engine::LogSDLError(std::ostream &os, const std::string &msg){
 
 ## Renderer init
 
+The Renderer is the object responsable for receiving the draw requests, and print them to the screen. 
 In the InitSDL() function, after the window creation, add:
 ```
 // Again, Renderer is a static variable of type SDL_Renderer
@@ -57,6 +58,43 @@ if (Renderer == nullptr) {
     LogSDLError(std::cout, "SDL_CreateRenderer Error");
     SDL_Quit();
 }
+```
+
+## Render to the screen
+
+Techinically we don't need a render() function, as we can just use the SDL one (SDL_RenderPresent()), 
+however, for consistency's sake we'll make a wrapper function, so we don't have to call just a single 
+SDL function from the main file.
+
+```
+void Engine::Render() {
+    SDL_RenderPresent(Renderer);
+}
+```
+
+## Basic event handling
+
+The function to handle events will have it's own chapter, as it's the most complex, to allow you to 
+close the window, we'll implement this simplified version.
+
+```
+void Engine::HandleEvents(){
+    SDL_Event event;
+    while (SDL_PollEvent(&event))
+    {        
+        if (event.type == SDL_QUIT)
+            running = false; // running is a static bool variable 
+    }
+}
+```
+
+The running variable is best if kept as a private variable, as you shouldn't change it from outside the 
+Engine class, so we'll implement a getter, to only check it's value.
+
+```
+bool Engine::IsRunning() { 
+    return running; 
+};  
 ```
 
 ## Clear the screen
@@ -83,6 +121,38 @@ void Engine::CleanupSDL(){
 
 ## Final main.cpp file
 
+Finally, it's time to use all the functions created in the main file.
+
+```
+#include "Engine.hpp"
+
+int main(int, char**) {
+    
+    Engine::InitSDL();
+    SDL_Color clearColor = {255,255,255,255};    
+    
+    while (Engine::IsRunning()) {
+        
+        Engine::HandleEvents();
+        Engine::ClearScreen(clearColor);
+        
+        Engine::SetEngineDrawColor(255, 0, 0, 255);
+                
+        Engine::Render();
+    }
+    
+    Engine::CleanupSDL();
+    
+    return 0;
+}
+```
+
+## References
+
+ - [TheCherno OpenGL tutorial]()
+ - [Lazy Foo's SDL tutorials](https://lazyfoo.net/tutorials/OpenGL/index.php)
+
+
 ###### relatedsection
 
  - 2D Engine 0
@@ -90,4 +160,3 @@ void Engine::CleanupSDL(){
  - 2D Engine 3: Drawing textures
  - 2D Engine 4: Drawing primitives
  - 2D Engine 5: Handling Time
- - 2D Engine 6: Simple vectors

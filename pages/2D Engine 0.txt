@@ -1,5 +1,5 @@
 
-###### descriptionsection In this series of articles we'll look into creating a small rendering engine using SDL2
+###### descriptionsection In this series of articles we'll look into creating a small rendering engine using SDL2.
 
 # Quest For A 2D Engine
 
@@ -38,4 +38,3 @@ Finally, in the main file, we'll be able to call Engine functions, and handle al
  - 2D Engine 3: Drawing textures
  - 2D Engine 4: Drawing primitives
  - 2D Engine 5: Handling Time
- - 2D Engine 6: Simple vectors

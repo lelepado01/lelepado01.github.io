@@ -27,6 +27,14 @@ const UPDATE_LIST = "#update_list_container";
 const PAGE_CONTAINER = "#page_content";
 const NAVBAR_CONTAINER = "#site_navbar"
 
+const SiteNavbarItems = [
+    {name:"The Dinger",link: ""},
+    {name:"Home",link: "index.html"},
+    {name:"Articles",link: "articles.html"},
+    {name:"Updates",link: "updates.html"}
+];
+
+
 const Articles = [
     "Quadtree",
     "2D Engine 0",
@@ -34,17 +42,9 @@ const Articles = [
     "2D Engine 2: Event handling",
     "2D Engine 3: Drawing textures",
     "2D Engine 4: Drawing primitives",
-    "2D Engine 5: Handling Time",
-    "2D Engine 6: Simple vectors",
+    "2D Engine 5: Handling Time"
 ];
 
 const Updates = [
-    "TestUpdate1"
-];
-
-const SiteNavbarItems = [
-    {name:"The Dinger",link: ""},
-    {name:"Home",link: "index.html"},
-    {name:"Articles",link: "articles.html"},
-    {name:"Updates",link: "updates.html"}
+    "2D Engine"
 ];
