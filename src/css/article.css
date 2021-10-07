@@ -38,6 +38,11 @@
     color: rgb(214, 216, 182);
 }
 
+.note {
+    padding: 10px;
+    background-color: #7e2a33;
+}
+
 code {
     color: #d1d0c5;
 }

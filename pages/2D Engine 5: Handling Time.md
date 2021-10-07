@@ -37,6 +37,8 @@ float Time::DeltaTime(){
 }
 ```
 
+The reason we use a condition instead of returning the deltaTime directly is, first of all to ensure that the value is always positive, and secondly, to avoid wild swings in the number, that would create inconsistant or unpredictable behaviours.
+
 ## Frames per second
 
 Knowing frames per second may be useful for debugging, so let's create a very simple function that returns 
@@ -50,8 +52,7 @@ float Time::FPS(){
 }
 ```
 
-###### notesection Note: if you end up printing the FPS at each iteration of the game loop, this measurement will be terrible, 
-any *print()* statement to console is a very expensive operation, and will bring your performance down.
+###### notesection if you end up printing the FPS at each iteration of the game loop, this measurement will be terrible, any print() statement to console is a very expensive operation, and will bring your performance down.
 
 ## References
 

@@ -29,6 +29,11 @@ function createArticleContent(pagePath, callback){
     );
 }
 
+function createNote(text){
+    text = text.replace(NOTE_SECTION_TAG, "");
+    return '<div class="note">' + "<b>Note:</b> " + text + '</div>'; 
+}
+
 function convertArticleFromTextToHtml(textData){
     var textDataLines = textData.split("\n"); 
 
@@ -38,17 +43,23 @@ function convertArticleFromTextToHtml(textData){
     for (let i = 0; i < textDataLines.length; i++) {
         if (textDataLines[i].includes(DESCRIPTION_SECTION_TAG)) continue; 
 
-        if (!textDataLines[i].includes(CODE_SECTION_TAG)) {
-
-            currentTextToParse += textDataLines[i] + "\n"; 
-            
-        } else {
+        if (textDataLines[i].includes(CODE_SECTION_TAG)) {
 
             completeHtml += Converter.makeHtml(currentTextToParse); 
             currentTextToParse = ""; 
 
             var filepath = textDataLines[i].split(" ")[2]; 
             completeHtml += '<div id="' + filepath + '"></div>';
+        
+        } else if (textDataLines[i].includes(NOTE_SECTION_TAG)) {
+        
+            completeHtml += Converter.makeHtml(currentTextToParse); 
+            currentTextToParse = ""; 
+            completeHtml += createNote(textDataLines[i]);
+
+        } else {
+
+            currentTextToParse += textDataLines[i] + "\n"; 
 
         }
     }
