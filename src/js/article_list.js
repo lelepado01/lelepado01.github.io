@@ -3,6 +3,7 @@ var ShortDescriptions = [];
 
 function createArticleBox(index){
     var articleElement = $("<li>").append($("<a>").text(Articles[index])); 
+
     articleElement.click(function(){
         if (IsHomepage()){
             createViewedArticleDescription(index);
@@ -10,6 +11,7 @@ function createArticleBox(index){
             GoToPage("article.html?page=" + Articles[index]);
         }
     }); 
+
     return articleElement; 
 }
 
@@ -22,6 +24,7 @@ function createViewedArticleDescription(index){
     btn.click(function(){
         GoToPage(HTML_FOLDER + "article.html?page=" + Articles[index]);
     });
+
     $(ARTICLE_VIEWED).append(btn); 
 }
 
@@ -58,5 +61,6 @@ $(document).ready(function(){
         $(ARTICLE_LIST).append(container); 
     
         createViewedArticleDescription(0); 
-    });  
+    }); 
+
 });
