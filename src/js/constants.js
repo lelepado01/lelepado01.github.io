@@ -12,7 +12,7 @@ const CODE_SECTION_TAG = "###### codesection";
 const NOTE_SECTION_TAG = '###### notesection';
 
 /* Components in index.html */
-const ARTICLE_LIST = "#article_list_container"; 
+const ARTICLE_LIST = "#article_list"; 
 const ARTICLE_VIEWED = "#viewed_article"; 
 
 /* Components in article.html */
@@ -33,20 +33,4 @@ const SiteNavbarItems = [
     {name:"Home",link: "index.html"},
     {name:"Articles",link: "articles.html"},
     {name:"Updates",link: "updates.html"}
-];
-
-
-const Articles = [
-    "Quadtree",
-    "2D Engine 0",
-    "2D Engine 1: Window management",
-    "2D Engine 2: Event handling",
-    "2D Engine 3: Drawing textures",
-    "2D Engine 4: Drawing primitives",
-    "2D Engine 5: Handling Time", 
-    "Isometric Tilemap", 
-];
-
-const Updates = [
-    "2D Engine"
 ];
