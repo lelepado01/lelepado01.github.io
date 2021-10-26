@@ -43,7 +43,8 @@ const Articles = [
     "2D Engine 2: Event handling",
     "2D Engine 3: Drawing textures",
     "2D Engine 4: Drawing primitives",
-    "2D Engine 5: Handling Time"
+    "2D Engine 5: Handling Time", 
+    "Isometric Tilemap", 
 ];
 
 const Updates = [

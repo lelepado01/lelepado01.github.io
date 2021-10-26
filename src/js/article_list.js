@@ -50,6 +50,10 @@ async function createArticleDescriptionList(){
 
 $(document).ready(function(){
 
+    $.get("../../pages", function(data){
+        console.log(data); 
+    }); 
+
     createArticleDescriptionList().then(() => {
         var ls = $("<ul>"); 
     
