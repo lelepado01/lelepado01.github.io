@@ -47,6 +47,11 @@
     overflow: hidden;
 }
 
+#article_list ul li ul { 
+    margin-left: 15px;
+    overflow: hidden;
+}
+
 #article_list ul li a {
     background-color: #7e2a33;
     font-size: 20px;

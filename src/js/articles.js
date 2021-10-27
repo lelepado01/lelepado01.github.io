@@ -1,19 +1,45 @@
 
-var ShortDescriptions = [];
+function ToggleHiddenArticleVisibility(hiddenElements, titleElement){
+    if (hiddenElements.is(":hidden")) {
+        hiddenElements.show(); 
+        titleElement.text("- " + titleElement.text().replace("> ", ""));
+    } else {
+        hiddenElements.hide(); 
+        titleElement.text("> " + titleElement.text().replace("- ", ""));
+    }
+}
 
-var ARTICLE_STRUCTURE_PATH = PAGES_FOLDER + "articles.json";
-const TOPIC_CONTAINER = "#topic_container"; 
+function createArticleBox(article){
+    var title = $("<a>").text(article.name); 
+    var articleElement = $("<li>").append(title); 
 
-function createArticleBox(name){
-    var articleElement = $("<li>").append($("<a>").text(name)); 
+    if (article.items){
+        title.text("> " + article.name); 
 
-    articleElement.click(function(){
-        if (IsHomepage()){
-            createViewedArticleDescription(name);
-        } else {
-            GoToPage("article.html?page=" + name);
+        var hidden_ls = $("<ul>").css("display", "none");
+        for (let i = 0; i < article.items.length; i++) {
+            var hiddenArticle = createArticleBox(article.items[i]); 
+
+            hiddenArticle.click(function(){
+                GoToPage("article.html?page=" + article.items[i].name);
+            }); 
+
+            hidden_ls.append(hiddenArticle);
         }
-    }); 
+
+        articleElement.click(function(){
+            ToggleHiddenArticleVisibility(hidden_ls, title); 
+        }); 
+
+        articleElement.append(hidden_ls); 
+
+    } else {
+
+        articleElement.click(function(){
+            GoToPage("article.html?page=" + article.name);
+        }); 
+    }
+    
 
     return articleElement; 
 }
@@ -32,7 +58,7 @@ function createTopicBox(topic_structure){
 function createArticleList(article_list){
     var ls = $("<ul>"); 
     for (let i = 0; i < article_list.length; i++) {
-        ls.append(createArticleBox(article_list[i].name)); 
+        ls.append(createArticleBox(article_list[i])); 
     }
 
     return ls; 

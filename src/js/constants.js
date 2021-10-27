@@ -5,6 +5,9 @@ const ARTICLES_FOLDER = "articles/"
 const HTML_FOLDER = "src/html/";
 const PAGES_FOLDER = "../../pages/"
 
+const ARTICLE_STRUCTURE_PATH = PAGES_FOLDER + "articles.json";
+const UPDATES_STRUCTURE_PATH = PAGES_FOLDER + "updates.json";
+
 /* Custom Markdown Tags */
 const DESCRIPTION_SECTION_TAG = "###### descriptionsection"; 
 const RELATED_TAG = "###### relatedsection";
@@ -18,6 +21,7 @@ const ARTICLE_VIEWED = "#viewed_article";
 /* Components in article.html */
 const ARTICLE_SIDEBAR = "#article_sidebar"; 
 const ARTICLE_BODY = "#article_content"; 
+const TOPIC_CONTAINER = "#topic_container"; 
 
 /* Components in update.html */
 const UPDATE_BODY= "#update_content";
