@@ -1,51 +1,53 @@
+{
+    "items":
+    [
+        {
+            "name": "Basketball",
+            "items": [
+                {"name" : "5 Lebron James Misconceptions"},
+                {
+                    "name" : "2021/2022 Season",
+                    "items": [
 
-[
-    {
-        "name": "Basketball",
-        "items": [
-            {"name" : "5 Lebron James Misconceptions"},
-            {
-                "name" : "2021/2022 Season",
-                "items": [
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Coding",
+            "items": [
+                {
+                    "name" : "2D Engine",
+                    "items": [
+                        {"name" : "2D Engine 0"},
+                        {"name" : "2D Engine 1: Window management"},
+                        {"name" : "2D Engine 2: Event handling"},
+                        {"name" : "2D Engine 3: Drawing textures"},
+                        {"name" : "2D Engine 4: Drawing primitives"},
+                        {"name" : "2D Engine 5: Handling Time"}, 
+                        {"name" : "Isometric Tilemap"}, 
+                        {"name" : "Quadtree"}
+                    ]
+                },
+                {
+                    "name" : "Generative Art",
+                    "items":[
 
-                ]
-            }
-        ]
-    },
-    {
-        "name": "Coding",
-        "items": [
-            {
-                "name" : "2D Engine",
-                "items": [
-                    {"name" : "2D Engine 0"},
-                    {"name" : "2D Engine 1: Window management"},
-                    {"name" : "2D Engine 2: Event handling"},
-                    {"name" : "2D Engine 3: Drawing textures"},
-                    {"name" : "2D Engine 4: Drawing primitives"},
-                    {"name" : "2D Engine 5: Handling Time"}, 
-                    {"name" : "Isometric Tilemap"}, 
-                    {"name" : "Quadtree"}
-                ]
-            },
-            {
-                "name" : "Generative Art",
-                "items":[
-
-                ]
-            }
-    ]},
-    {
-        "name": "Music",
-        "items": [
-            {"name" : "Album Rankings"},
-            {"name" : "Some analysis on my album rankings"}
-        ]
-    },
-    {
-        "name": "Various",
-        "items": [
-            
-        ]
-    }
-]
+                    ]
+                }
+        ]},
+        {
+            "name": "Music",
+            "items": [
+                {"name" : "Album Rankings"},
+                {"name" : "Some analysis on my album rankings"}
+            ]
+        },
+        {
+            "name": "Various",
+            "items": [
+                
+            ]
+        }
+    ]
+}

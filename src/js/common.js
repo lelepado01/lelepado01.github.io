@@ -19,3 +19,9 @@ function IsHomepage(){
 function GoToPage(page){
     document.location.replace(page); 
 }
+
+async function getFileAtPath(path){
+    return await $.get(path, function(data) {
+        return data;
+    });
+}

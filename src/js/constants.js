@@ -15,6 +15,7 @@ const CODE_SECTION_TAG = "###### codesection";
 const NOTE_SECTION_TAG = '###### notesection';
 
 /* Components in index.html */
+const RECOMENDED_ARTICLE_NUMBER = 10; 
 const ARTICLE_LIST = "#article_list"; 
 const ARTICLE_VIEWED = "#viewed_article"; 
 

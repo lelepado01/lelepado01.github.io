@@ -1,5 +1,5 @@
 
-function ToggleHiddenArticleVisibility(hiddenElements, titleElement){
+function toggleHiddenArticleVisibility(hiddenElements, titleElement){
     if (hiddenElements.is(":hidden")) {
         hiddenElements.show(); 
         titleElement.text("- " + titleElement.text().replace("> ", ""));
@@ -28,7 +28,7 @@ function createArticleBox(article){
         }
 
         articleElement.click(function(){
-            ToggleHiddenArticleVisibility(hidden_ls, title); 
+            toggleHiddenArticleVisibility(hidden_ls, title); 
         }); 
 
         articleElement.append(hidden_ls); 
@@ -64,25 +64,20 @@ function createArticleList(article_list){
     return ls; 
 }
 
-async function getFileAtPath(path){
-    return await $.get(path, function(data) {
-        return data;
-    });
-}
-
 $(document).ready(function(){
 
     getFileAtPath(ARTICLE_STRUCTURE_PATH).then(function(file_tree_structure){
 
         var ls = $("<ul>"); 
-        for (let i = 0; i < file_tree_structure.length; i++) {
-            ls.append(createTopicBox(file_tree_structure[i])); 
+        for (let i = 0; i < file_tree_structure.items.length; i++) {
+            ls.append(createTopicBox(file_tree_structure.items[i])); 
         }
 
         $(TOPIC_CONTAINER).append(ls); 
 
         $(ARTICLE_LIST).append(
-            createArticleList(file_tree_structure[0].items)
+            createArticleList(file_tree_structure.items[0].items)
         ); 
     }); 
+    
 });
