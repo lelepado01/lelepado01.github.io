@@ -66,6 +66,7 @@ function convertArticleFromTextToHtml(textData){
     $(ARTICLE_BODY).html(completeHtml);
 }
 
+
 function createArticleSidebar(relatedArticlesMarkdown){
     var header_list = document.getElementsByTagName("h2"); 
 
