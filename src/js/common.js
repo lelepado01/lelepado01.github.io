@@ -26,6 +26,6 @@ async function getFileAtPath(path){
     });
 }
 
-function getArticleNameFromPath(articlePath){
-    return articlePath.split("/")[articlePath.split("/").length - 1]; 
+function getFileNameFromPath(path){
+    return path.split("/")[path.split("/").length - 1]; 
 }

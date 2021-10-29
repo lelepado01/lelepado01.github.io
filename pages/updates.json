@@ -1,3 +1,8 @@
-[
-    "2D Engine"
-]
+{
+    "items":
+        [
+            {
+                "name": "2D Engine"
+            }
+        ]
+}

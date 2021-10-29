@@ -28,7 +28,7 @@ const TOPIC_CONTAINER = "#topic_container";
 const UPDATE_BODY= "#update_content";
 
 /* Components in updates.html */
-const UPDATE_LIST = "#update_list_container";
+const UPDATE_LIST = "#updates_container";
 
 const PAGE_CONTAINER = "#page_content";
 const NAVBAR_CONTAINER = "#site_navbar"

@@ -1,6 +1,6 @@
 
 function createArticleBox(articlePath){
-    var title = $("<a>").text(getArticleNameFromPath(articlePath)); 
+    var title = $("<a>").text(getFileNameFromPath(articlePath)); 
     var articleElement = $("<li>").append(title); 
     
     articleElement.click(function(){
@@ -37,7 +37,7 @@ function createArticlePreview(articlePath){
 
     var articleBtn = $("<div>", {"class": "info_button"}).text("View full Article"); 
     articleBtn.click(function(){
-        GoToPage(HTML_FOLDER + "article.html?page=" + getArticleNameFromPath(articlePath));
+        GoToPage(HTML_FOLDER + "article.html?page=" + getFileNameFromPath(articlePath));
     }); 
 
     $(ARTICLE_VIEWED).append(articleBtn); 

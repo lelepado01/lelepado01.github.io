@@ -1,29 +1,29 @@
 
-#update_list_container {
+#updates_container {
     background-color: #646464;
     width: 80%;
     padding: 5px 10px;
+    margin-left: 30px;
 }
   
-#update_list_container ul {
+#updates_container ul {
     list-style-type: none;
     line-height: 50px;
     display: inline;
-    padding: 10px 0px;
+    padding: 0px;
 }
 
-#update_list_container ul li {
-    display: inline-block;
+#updates_container ul li {
     margin: 5px;
 }
 
-#update_list_container ul li a {
+#updates_container ul li a {
     background-color: #7e2a33;
     font-size: 20px;
     padding: 10px 20px;
 }
 
-#update_list_container ul li a:hover {
+#updates_container ul li a:hover {
     color: rgb(255, 255, 255);
     background-color: #661e25;
     cursor: pointer;
