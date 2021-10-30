@@ -30,6 +30,7 @@
 #article_content {
     float: left;
     padding-left: 25%;
+    width: 60%;
     margin: 0 20px;
 }
 

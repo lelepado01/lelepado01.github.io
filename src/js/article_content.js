@@ -7,7 +7,7 @@ var cachedText = '';
 $(document).ready(function(){
     var page = document.URL.split("=")[1]; 
     if (page.includes("#")) page = page.split("#")[0]; 
-    var pageName = PAGES_FOLDER + page + ".md";
+    var pageName = PAGES_FOLDER + page.replace("%20", " ") + ".md";
 
     createArticleContent(pageName, (data) => {
         createArticleSidebar(data); 

@@ -9,7 +9,7 @@ function toggleHiddenArticleVisibility(hiddenElements, titleElement){
     }
 }
 
-function createArticleBox(article){
+function createArticleBox(topic, article){
     var title = $("<a>").text(article.name); 
     var articleElement = $("<li>").append(title); 
 
@@ -18,10 +18,10 @@ function createArticleBox(article){
 
         var hidden_ls = $("<ul>").css("display", "none");
         for (let i = 0; i < article.items.length; i++) {
-            var hiddenArticle = createArticleBox(article.items[i]); 
+            var hiddenArticle = createArticleBox(topic, article.items[i]); 
 
             hiddenArticle.click(function(){
-                GoToPage("article.html?page=" + article.items[i].name);
+                GoToPage("article.html?page=" + topic + "/" + article.name + "/" + article.items[i].name);
             }); 
 
             hidden_ls.append(hiddenArticle);
@@ -36,7 +36,7 @@ function createArticleBox(article){
     } else {
 
         articleElement.click(function(){
-            GoToPage("article.html?page=" + article.name);
+            GoToPage("article.html?page=" + topic + "/" + article.name);
         }); 
     }
     
@@ -49,16 +49,16 @@ function createTopicBox(topic_structure){
 
     articleElement.click(function(){
         $(ARTICLE_LIST).empty(); 
-        $(ARTICLE_LIST).append(createArticleList(topic_structure.items)); 
+        $(ARTICLE_LIST).append(createArticleList(topic_structure.name, topic_structure.items)); 
     }); 
 
     return articleElement; 
 }
 
-function createArticleList(article_list){
+function createArticleList(topic_name, article_list){
     var ls = $("<ul>"); 
     for (let i = 0; i < article_list.length; i++) {
-        ls.append(createArticleBox(article_list[i])); 
+        ls.append(createArticleBox(topic_name, article_list[i])); 
     }
 
     return ls; 
@@ -67,7 +67,6 @@ function createArticleList(article_list){
 $(document).ready(function(){
 
     getFileAtPath(ARTICLE_STRUCTURE_PATH).then(function(file_tree_structure){
-
         var ls = $("<ul>"); 
         for (let i = 0; i < file_tree_structure.items.length; i++) {
             ls.append(createTopicBox(file_tree_structure.items[i])); 
@@ -76,7 +75,7 @@ $(document).ready(function(){
         $(TOPIC_CONTAINER).append(ls); 
 
         $(ARTICLE_LIST).append(
-            createArticleList(file_tree_structure.items[0].items)
+            createArticleList(file_tree_structure.items[0].name, file_tree_structure.items[0].items)
         ); 
     }); 
     

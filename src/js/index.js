@@ -11,6 +11,7 @@ function createArticleBox(articlePath){
     return articleElement; 
 }
 
+
 function fillArticleDescription(articleName){
     fetch("pages" + articleName + ".md").then((r) => r.blob().then((b)=>{
         var reader = new FileReader();
@@ -65,6 +66,7 @@ function getArticleList(file_tree_structure, prefix){
 
     return ls; 
 }
+
 
 function selectRandomArticles(file_tree_structure){
     var article_ls = getArticleList(file_tree_structure, ""); 
