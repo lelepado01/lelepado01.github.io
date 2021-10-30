@@ -37,7 +37,7 @@ function createArticlePreview(articlePath){
 
     var articleBtn = $("<div>", {"class": "info_button"}).text("View full Article"); 
     articleBtn.click(function(){
-        GoToPage(HTML_FOLDER + "article.html?page=" + getFileNameFromPath(articlePath));
+        GoToPage(HTML_FOLDER + "article.html?page=" + articlePath);
     }); 
 
     $(ARTICLE_VIEWED).append(articleBtn); 

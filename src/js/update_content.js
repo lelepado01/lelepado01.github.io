@@ -6,7 +6,7 @@ $(document).ready(function(){
     if (page.includes("#")) page = page.split("#")[0]; 
     var pageName = "../../" + UPDATES_FOLDER + page + ".md";
 
-    $(PAGE_CONTAINER).prepend($("<h2>").text(page));
+    $(PAGE_CONTAINER).prepend($("<h2>").text(page.replace("%20", " ")));
     createUpdateContent(pageName); 
 });
 
