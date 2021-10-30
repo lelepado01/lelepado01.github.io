@@ -96,7 +96,7 @@ function createArticleSidebar(relatedArticlesMarkdown){
 
         related_list.append(
             $("<li>").append(
-                $("<a>", {href: "article.html?page=" + articleName}).text(articleName)
+                $("<a>", {href: "article.html?page=" + articleName}).text(getFileNameFromPath(articleName))
             )
         ); 
     }

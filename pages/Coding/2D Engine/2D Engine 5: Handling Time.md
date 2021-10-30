@@ -62,8 +62,8 @@ float Time::FPS(){
 
 ###### relatedsection
 
- - 2D Engine 0
- - 2D Engine 1: Window management
- - 2D Engine 2: Event handling
- - 2D Engine 3: Drawing textures
- - 2D Engine 4: Drawing primitives
+ - Coding/2D Engine/2D Engine 0
+ - Coding/2D Engine/2D Engine 1: Window management
+ - Coding/2D Engine/2D Engine 2: Event handling
+ - Coding/2D Engine/2D Engine 3: Drawing textures
+ - Coding/2D Engine/2D Engine 4: Drawing primitives

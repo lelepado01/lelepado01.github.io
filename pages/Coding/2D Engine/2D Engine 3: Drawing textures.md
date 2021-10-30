@@ -65,8 +65,8 @@ void Engine::DeleteTexture(SDL_Texture *tex){
 
 ###### relatedsection
 
- - 2D Engine 0
- - 2D Engine 1: Window management
- - 2D Engine 2: Event handling
- - 2D Engine 4: Drawing primitives
- - 2D Engine 5: Handling Time
+ - Coding/2D Engine/2D Engine 0
+ - Coding/2D Engine/2D Engine 1: Window management
+ - Coding/2D Engine/2D Engine 2: Event handling
+ - Coding/2D Engine/2D Engine 4: Drawing primitives
+ - Coding/2D Engine/2D Engine 5: Handling Time
