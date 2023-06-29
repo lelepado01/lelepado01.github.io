@@ -35,7 +35,6 @@ $(document).ready(function(){
 
         var ls = $("<ul>"); 
         var updates = getUpdateList(file_tree_structure, ""); 
-        console.log(updates); 
         for (let i = 0; i < updates.length; i++) {
             ls.append(createUpdateBox(updates[i])); 
         }

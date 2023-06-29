@@ -34,8 +34,9 @@ const PAGE_CONTAINER = "#page_content";
 const NAVBAR_CONTAINER = "#site_navbar"
 
 const SiteNavbarItems = [
-    {name:"The Dinger",link: ""},
+    {name:"Wita",link: ""},
     {name:"Home",link: "index.html"},
     {name:"Articles",link: "articles.html"},
-    {name:"Updates",link: "updates.html"}
+    {name:"Updates",link: "updates.html"},
+    {name:"WhereHaveIBeen",link: "wherehaveIbeen.html"},
 ];
