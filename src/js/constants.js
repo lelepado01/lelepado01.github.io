@@ -11,7 +11,7 @@ const UPDATES_STRUCTURE_PATH = PAGES_FOLDER + "updates.json";
 /* Custom Markdown Tags */
 const DESCRIPTION_SECTION_TAG = "###### descriptionsection"; 
 const RELATED_TAG = "###### relatedsection";
-const CODE_SECTION_TAG = "###### codesection"; 
+const P5JS_SECTION_TAG = "###### p5codesection"; 
 const NOTE_SECTION_TAG = '###### notesection';
 
 /* Components in index.html */

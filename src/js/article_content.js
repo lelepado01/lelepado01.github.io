@@ -40,12 +40,18 @@ function createNote(text){
 function parseArticleLine(line){
     if (line.includes(DESCRIPTION_SECTION_TAG)) {
         return; 
-    } else if (line.includes(CODE_SECTION_TAG)) {
+    } else if (line.includes(P5JS_SECTION_TAG)) {
         completeHtml += Converter.makeHtml(cachedText); 
         cachedText = ''; 
 
         var filepath = line.split(" ")[2]; 
-        cachedText += '<div id="' + filepath + '"></div>';  
+        cachedText += '<div id="p5codesection">';
+        cachedText += '<script src="' + filepath + '"></script>';
+        cachedText += '</div>';  
+
+        completeHtml += Converter.makeHtml(cachedText);
+        cachedText = '';
+
     } else if (line.includes(NOTE_SECTION_TAG)) {
         line = line.replace(NOTE_SECTION_TAG, ""); 
         cachedText += createNote(line);
