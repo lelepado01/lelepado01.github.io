@@ -8,8 +8,10 @@ function sketch_idnameofdiv(p) {
   
     p.draw = function () {
        
-        // follow the cursor and draw a line
-        p.line(p.mouseX, p.mouseY, p.pmouseX, p.pmouseY);
+        // follow the cursor and draw a line if clicked
+        if (p.mouseIsPressed) {
+            p.line(p.mouseX, p.mouseY, p.pmouseX, p.pmouseY);
+        }
     
 
     }
