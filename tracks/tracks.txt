@@ -1,3 +1,0 @@
-data.geojson
-data(1).geojson
-data(2).geojson
