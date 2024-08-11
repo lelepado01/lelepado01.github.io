@@ -1,7 +1,8 @@
 
 const sentences_phrases = [
-    "{} approccia qualcuno/a",
-    "{} approccia minore", 
+    "{} hits on someone",
+    "{} hits on a minor",
+    "{} gets sunburned",
     "Unknow person dies (no one's fault)",
     "Unknow person dies ({}'s fault)",
     "Collettive fight", 
