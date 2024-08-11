@@ -14,7 +14,7 @@
             Drag and drop the sentences into the grid to create your personalized Bresco's Vacation Bingo&#8482; card. Save your configuration when you're done!
         </p>
         <div class="row">
-            <div class="col-md-8">
+            <div class="col-12 col-md-8">
                 <div class="bingo-card" id="bingo-card">
                     <!-- 16 Bingo cells for a 4x4 grid -->
                     <div class="bingo-cell" id="cell-1"></div>
@@ -35,14 +35,15 @@
                     <div class="bingo-cell" id="cell-16"></div>
                 </div>
             </div>
-            <div class="col-md-4">
+            <div class="col-12 col-md-4">
                 <div class="sentence-pool" id="sentence-pool">
                 </div>
             </div>
-            <div class="container text-center p-2 m-2">
-                <div class="d-flex align-items-center justify-content-center">
-                    <button id="save-button" class="btn btn-primary m-2">Save Bingo Configuration</button>
-                    <button id="clear-map-button" class="btn btn-secondary m-2 ml-4">Clear Bingo Map</button>
+        </div>
+        <div class="container text-center p-2 m-2">
+                <div class="d-flex flex-column flex-md-row justify-content-center align-items-center mt-4">
+                    <button id="save-button" class="btn btn-primary m-2 mb-2 mb-md-0">Save Bingo Configuration</button>
+                    <button id="clear-map-button" class="btn btn-secondary m-2 ml-4 ml-md-2">Clear Bingo Map</button>
                 </div>
             </div>
             <!-- Modal for user input -->

@@ -163,3 +163,26 @@ h1 {
     justify-content: center;
     gap: 10px; /* Optional: Adjust gap between buttons if needed */
 }
+
+/* Responsive text */
+h1 {
+    font-size: 2rem;
+}
+
+@media (max-width: 576px) {
+    h1 {
+        font-size: 1.5rem;
+    }
+}
+
+/* Responsive modal */
+.modal-dialog {
+    max-width: 90%;
+    margin: 1.75rem auto;
+}
+
+@media (min-width: 768px) {
+    .modal-dialog {
+        max-width: 500px;
+    }
+}
