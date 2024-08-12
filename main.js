@@ -124,6 +124,17 @@ document.getElementById('user-name').addEventListener('input', function() {
     userName = this.value;
 }); 
 
+document.getElementById('capture-button').addEventListener('click', function() {
+    html2canvas(document.body, {
+        onrendered: function(canvas) {
+            // Create an <a> element
+            var link = document.createElement('a');
+            link.href = canvas.toDataURL();
+            link.download = 'webpage-snapshot.png';
+            link.click();
+        }
+    });
+});
 
 function saveConfiguration() {
     const bingoCells = document.querySelectorAll('.bingo-cell');

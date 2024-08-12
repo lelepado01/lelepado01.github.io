@@ -133,6 +133,31 @@ h1 {
     transform: scale(1.1);
 }
 
+#capture-button{
+    background-color: var(--primary-color);
+    border: none;
+    color: #fff;
+    padding: 12px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    display: block;
+    margin: 30px auto 0;
+    text-align: center;
+}
+
+#capture-button:hover {
+    background-color: var(--secondary-color);
+    transform: scale(1.05);
+}
+
+#capture-button:active {
+    background-color: var(--accent-color);
+    transform: scale(1.1);
+}
+
 #clear-map-button {
     background-color: var(--primary-color); /* Use the same primary color */
     border: none;
