@@ -17,13 +17,13 @@ const sentences_phrases = [
     "{} loses the phone", 
     "{} doesn't buy the ticket", 
     "{} gets fined (any reason)", 
-    "Bresco's grandpa cuddling X", 
+    "Bresco's grandpa cuddling {}", 
     "{} is stung by a jellyfish", 
     "{} flees the vacation", 
     "{} sneaks a jellyfish into Gioele's costume", 
     "{} gets lost in the pineta", 
     "Sun umbrella flies away 3+ times", 
-    "X misses the train", 
+    "{} misses the train", 
     "Lorenzo B builds a sand castle",
     "Marzio builds a better sand castle", 
     "Marzio cooks risotto", 
@@ -94,6 +94,7 @@ document.getElementById('submit-input').addEventListener('click', function() {
             grid = null; // Clear the grid
             editedItem = null; // Clear the edited item
             currentCell = null; // Clear the current cell
+            $("#modal-text-contaner").text("");
             $('#inputModal').modal('hide'); // Hide the modal
         }
     }
@@ -221,6 +222,7 @@ function dropOnBingoCell(e) {
         currentCell = cell; // Set the current cell
         editedItem = draggedItem;
         grid = this;
+        $("#modal-text-contaner").text(draggedItem.textContent);
         $('#inputModal').modal('show'); // Show the modal
     } else {
         this.appendChild(draggedItem);
