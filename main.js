@@ -127,7 +127,10 @@ document.getElementById('user-name').addEventListener('input', function() {
 }); 
 
 document.getElementById('capture-button').addEventListener('click', function() {
-    showMinecraftModal(); 
+    if (firstTime) {
+        showMinecraftModal(); 
+        return; 
+    }
 
     html2canvas(document.body, {
         onrendered: function(canvas) {
@@ -141,14 +144,15 @@ document.getElementById('capture-button').addEventListener('click', function() {
 });
 
 function showMinecraftModal() {
-    if (firstTime) {
-        $('#minecraftModal').modal('show');
-        firstTime = false;
-    }
+    $('#minecraftModal').modal('show');
+    firstTime = false;
 }
 
 function saveConfiguration() {
-    showMinecraftModal(); 
+    if (firstTime) {
+        showMinecraftModal(); 
+        return; 
+    }
 
     const bingoCells = document.querySelectorAll('.bingo-cell');
     let data = {};
