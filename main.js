@@ -65,6 +65,7 @@ let draggedItem = null;
 let currentCell = null;
 let editedItem = null;
 let grid = null;
+let firstTime = true;
 
 document.querySelectorAll('.sentence-item').forEach(sentence => {
     sentence.addEventListener('dragstart', dragStart);
@@ -126,6 +127,8 @@ document.getElementById('user-name').addEventListener('input', function() {
 }); 
 
 document.getElementById('capture-button').addEventListener('click', function() {
+    showMinecraftModal(); 
+
     html2canvas(document.body, {
         onrendered: function(canvas) {
             // Create an <a> element
@@ -137,7 +140,16 @@ document.getElementById('capture-button').addEventListener('click', function() {
     });
 });
 
+function showMinecraftModal() {
+    if (firstTime) {
+        $('#minecraftModal').modal('show');
+        firstTime = false;
+    }
+}
+
 function saveConfiguration() {
+    showMinecraftModal(); 
+
     const bingoCells = document.querySelectorAll('.bingo-cell');
     let data = {};
     const bingoConfig = [];
