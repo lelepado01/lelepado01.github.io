@@ -158,6 +158,29 @@ h1 {
     transform: scale(1.1); /* Further enlarge on active */
 }
 
+/* Modal submit button styled like the save button */
+.modal-submit-button {
+    background-color: var(--primary-color);
+    border: none;
+    color: #fff;
+    padding: 12px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.modal-submit-button:hover {
+    background-color: var(--secondary-color);
+    transform: scale(1.05);
+}
+
+.modal-submit-button:active {
+    background-color: var(--accent-color);
+    transform: scale(1.1);
+}
+
 .btn-group {
     display: flex;
     justify-content: center;
@@ -169,20 +192,8 @@ h1 {
     font-size: 2rem;
 }
 
-@media (max-width: 576px) {
-    h1 {
-        font-size: 1.5rem;
-    }
-}
-
 /* Responsive modal */
 .modal-dialog {
     max-width: 90%;
     margin: 1.75rem auto;
-}
-
-@media (min-width: 768px) {
-    .modal-dialog {
-        max-width: 500px;
-    }
 }

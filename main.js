@@ -36,6 +36,11 @@ const sentences_phrases = [
     "{} chokes Marzio", 
     "{} chokes Bresco",
     "{} chokes both at the same time", 
+    "{} chokes himself",
+    "Bresco baths in Fosso Burlamacca (real place, look it up)",
+    "Trip to lake Massaciuccoli (real place, look it up)",
+    "Bresco's grandpa skinny dipping",
+    "{} brings a souvenir to the office",
 ]; 
 
 // Function to create sentence items and append to pool
@@ -113,16 +118,25 @@ document.getElementById('clear-map-button').addEventListener('click', function()
     });
 });
 
+let userName = '';
+
+document.getElementById('user-name').addEventListener('input', function() {
+    userName = this.value;
+}); 
+
 
 function saveConfiguration() {
     const bingoCells = document.querySelectorAll('.bingo-cell');
+    let data = {};
     const bingoConfig = [];
 
     bingoCells.forEach(cell => {
         bingoConfig.push(cell.textContent.trim());
     });
+    data['user'] = userName;
+    data['bingo'] = bingoConfig;
 
-    const jsonConfig = JSON.stringify(bingoConfig, null, 2);
+    const jsonConfig = JSON.stringify(data, null, 2);
 
     // Trigger download
     const blob = new Blob([jsonConfig], { type: 'application/json' });
