@@ -5,7 +5,7 @@ const sentences_phrases = [
     "{} gets sunburned",
     "Unknow person dies (no one's fault)",
     "Unknow person dies ({}'s fault)",
-    "Collettive fight", 
+    "Collective fight", 
     "Collective fight involving Marzio",
     "{} gets into a fight", 
     "{} gets into a monopoly fight",
@@ -43,6 +43,10 @@ const sentences_phrases = [
     "{} brings a souvenir to the office",
 ]; 
 
+const points_for_phrase = [
+    5, 50, 10, 50, 100, 20, 15, 20, 10, 30, 20, 10, 10, 25, 15, 15, 10, 100, 80, 50, 150, 75, 30, 10, 40, 20, 15, 150, 100, 20, 50, 150, 150, 100, 100, 150, 10, 50, 30, 200, 200 
+]
+
 // Function to create sentence items and append to pool
 function populateSentencePool() {
     sentences_phrases.forEach((sentence, index) => {
@@ -51,6 +55,12 @@ function populateSentencePool() {
         sentenceItem.draggable = true;
         sentenceItem.id = `sentence-${index + 1}`;
         sentenceItem.textContent = sentence;
+
+        const p = document.createElement('p');
+        p.classList.add('point-banner');
+        p.textContent = `${points_for_phrase[index]}` + " points";
+
+        sentenceItem.appendChild(p);
         
         sentencePool.appendChild(sentenceItem);
     });
@@ -85,19 +95,17 @@ document.getElementById('save-button').addEventListener('click', saveConfigurati
 // Handle modal submission
 document.getElementById('submit-input').addEventListener('click', function() {
     const userInput = document.getElementById('user-input').value.trim();
-    if (userInput) {
-        if (currentCell) {
-            editedItem.oldTextContent = editedItem.textContent
-            editedItem.textContent = str_replace(editedItem.textContent.trim(), '{}', userInput);
+    if (userInput && currentCell) {
+        editedItem.oldTextContent = editedItem.innerHTML;
+        editedItem.innerHTML = str_replace(editedItem.innerHTML.trim(), '{}', userInput);
 
-            grid.appendChild(editedItem);
-            
-            grid = null; // Clear the grid
-            editedItem = null; // Clear the edited item
-            currentCell = null; // Clear the current cell
-            $("#modal-text-contaner").text("");
-            $('#inputModal').modal('hide'); // Hide the modal
-        }
+        grid.appendChild(editedItem);
+        
+        grid = null; // Clear the grid
+        editedItem = null; // Clear the edited item
+        currentCell = null; // Clear the current cell
+        $("#modal-text-contaner").text("");
+        $('#inputModal').modal('hide'); // Hide the modal
     }
 
     document.getElementById('user-input').value = ''; // Clear the input field
@@ -110,7 +118,7 @@ document.getElementById('clear-map-button').addEventListener('click', function()
         if (cell.hasChildNodes()) {
             const existingElement = cell.firstChild;
             if (existingElement.oldTextContent) {
-                existingElement.textContent = existingElement.oldTextContent;
+                existingElement.innerHTML = existingElement.oldTextContent;
                 delete existingElement.oldTextContent;
             }
             // reset the style of the cell
@@ -228,8 +236,8 @@ function dropOnBingoCell(e) {
     
     // If the cell has a child node, move it back to the pool
     if (this.hasChildNodes()) {
-        const existingElement = this.firstChild;
-        sentencePool.appendChild(existingElement);
+        sentencePool.appendChild(draggedItem);
+        return; 
     }
 
     // Append the dragged element to the bingo cell
@@ -252,11 +260,15 @@ function dropInPool(e) {
     if (draggedItem && e.target.classList.contains('sentence-item')) {
         // Re-arrange sentences within the pool
         if (draggedItem.oldTextContent) {
-            draggedItem.textContent = draggedItem.oldTextContent;
+            draggedItem.innerHTML = draggedItem.oldTextContent;
             delete draggedItem.oldTextContent;
         }
         sentencePool.insertBefore(draggedItem, e.target.nextSibling);
     } else if (draggedItem) {
+        if (draggedItem.oldTextContent) {
+            draggedItem.innerHTML = draggedItem.oldTextContent;
+            delete draggedItem.oldTextContent;
+        }
         // Append the dragged item to the pool
         sentencePool.appendChild(draggedItem);
     }
