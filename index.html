@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RESEARCH_LOG // v1.0</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <!-- marked.js parses markdown files in the browser -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+<body>
+
+  <div class="window">
+    <div class="title-bar">
+      <span id="win-title">C:\SYSTEM\RANDOM_LOGS.EXE</span>
+      <div class="title-bar-buttons">
+        <button>_</button>
+        <button>□</button>
+        <button>x</button>
+      </div>
+    </div>
+
+    <div class="content-box">
+      <nav style="margin-bottom: 20px;">
+        <a href="#" id="home-btn">[HOME]</a> | 
+        <a href="https://github.com" target="_blank">[GITHUB]</a>
+      </nav>
+
+      <!-- View 1: List + Search -->
+      <div id="list-view">
+        <h1>SEARCH LOGS</h1>
+        <input type="text" id="search-input" placeholder="Type key term...">
+        <ul id="posts-list" style="padding: 0;"></ul>
+      </div>
+
+      <!-- View 2: Post Viewer -->
+      <div id="post-view" style="display: none;">
+        <div id="post-content"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
