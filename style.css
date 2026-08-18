@@ -103,6 +103,15 @@ input[type="text"] {
   margin-bottom: 15px;
 }
 
+#post-content img {
+  max-width: 1000px; /* Adjust this value to your preferred max width */
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 15px 0;
+  image-rendering: pixelated; /* Keeps retro/pixel art crisp */
+}
+
 .post-item {
   list-style: none;
   padding: 8px 0;
