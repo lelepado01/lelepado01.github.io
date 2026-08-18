@@ -10,7 +10,9 @@ a new study shows planes flying over patches of rain or snow can boost precipita
 
 However no evidence is actually shown, it would be nice to have some data...
 
+![Test](https://github.com/lelepado01/lelepado01.github.io/blob/main/imgs/airport_precipitation.png)
 
+I would say no
 
 **References**
 + https://www.mdpi.com/2674-0494/1/2/12
